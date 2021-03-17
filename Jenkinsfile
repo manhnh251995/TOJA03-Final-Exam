@@ -9,7 +9,7 @@ pipeline {
         VERSION = "latest"
     }
     parameters {
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        choice(name: 'CHOICE', choices: ['NodeJS', 'Python', 'All'], description: 'Pick something')
     }
     stages {
         stage('Example') {
