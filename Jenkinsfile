@@ -49,5 +49,39 @@ pipeline {
                 '''
             }
         }
+    //Deploy Application
+        stage('Deploy NodeJS'){
+            when {
+            expression { params.CHOICE == 'NodeJS' }
+            }
+            agent { label 'jenkin02' }
+            steps {
+                sh'''
+                sh DeployNodeJS.sh 
+                '''
+            }
+        }
+        stage('Deploy Python'){
+            when {
+            expression { params.CHOICE == 'Python' }
+            }
+            agent { label 'jenkin02' }
+            steps {
+                sh'''
+                sh DeployPython.sh 
+                '''
+            }
+        }
+        stage('Deploy ALL'){
+            when {
+            expression { params.CHOICE == 'all' }
+            }
+            agent { label 'jenkin02' }
+            steps {
+                sh'''
+                sh DeployNodeJS.sh && sh DeployPython.sh
+                '''
+            }
+        }
     }    
 }
