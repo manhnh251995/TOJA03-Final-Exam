@@ -83,5 +83,31 @@ pipeline {
                 '''
             }
         }
-    }    
+    }
+     post {
+        success {
+            script {
+                mail (to: 'nguyenmanh251995@gmail.com',
+                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success",
+                        body: "Please visit ${env.BUILD_URL} for further information"
+                );
+                }
+        }
+        failure {
+            script {
+                mail (to: 'nguyenmanh251995@gmail.com',
+                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed",
+                        body: "Please visit ${env.BUILD_URL} for further information"
+                );
+                }
+        }
+        unstable {
+            script {
+                mail (to: 'nguyenmanh251995@gmail.com',
+                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed",
+                        body: "Please visit ${env.BUILD_URL} for further information"
+                );
+                }
+        }
+    }
 }
