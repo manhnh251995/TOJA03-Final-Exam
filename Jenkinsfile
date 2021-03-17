@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none 
     options {
         timestamps()
         timeout(time: 1, unit: 'MINUTES') 
@@ -14,6 +14,7 @@ pipeline {
     stages {
         //STEP Build application
         stage('build NodeJS'){
+            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'NodeJS' }
             }
@@ -25,6 +26,7 @@ pipeline {
             }
         }
         stage('build Python'){
+            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'Python' }
             }
@@ -36,6 +38,7 @@ pipeline {
             }
         }
         stage('build ALL'){
+            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'all' }
             }
