@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh'''
                 echo "hello nodeJS"
-                sh buildNodeJS.sh
+                ./buildNodeJS.sh
                 '''
             }
         }
