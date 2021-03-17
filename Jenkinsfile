@@ -15,7 +15,7 @@ pipeline {
       stage("build") {
         steps{
           sh'''
-          echo $(date)
+          echo "${params.PERSON}"
           '''
         }
       }
