@@ -57,6 +57,7 @@ pipeline {
             agent { label 'jenkin02' }
             steps {
                 sh'''
+                pwd
                 sh DeployNodeJS.sh 
                 '''
             }
