@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         secret = credentials('TEST')
-        SCLC = "TEST2"
+        VERSION = "latest"
     }
     parameters {
         choice(name: 'CHOICES', choices: ['nodejs', 'python', 'all'], description: 'Pick appication something')
