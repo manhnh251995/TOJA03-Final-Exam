@@ -18,7 +18,10 @@ pipeline {
             expression { params.CHOICE == 'NodeJS' }
             }
             steps {
+                sh'''
                 echo "hello nodeJS"
+                sh buildNodeJS.sh
+                '''
             }
         }
         stage('build Python'){
