@@ -7,14 +7,13 @@ pipeline {
   options {
         timeout(time: 1, unit: 'MINUTES') 
     }
-  parameters { choice(name: 'CHOICES', choices: ['nodejs','python','all'],descrition: 'Enter your app you want deploy')}
-  stages {
-    stage("Build Image) {
-      steps {
+  statges{
+    stage("Build"){
+      steps{
         sh'''
-        echo "A Bau"
-        ''
+        echo "Manhnh"
+        '''
       }
     }
   }
- }
+}
