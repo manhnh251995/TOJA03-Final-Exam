@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 1, unit: 'MINUTES') 
     }
     environment {
-        secret = credentials('TEST')
+        PASSWORD_DOCKER_HUB = credentials('docker-registry-pass')
         VERSION = "latest"
     }
     parameters {
