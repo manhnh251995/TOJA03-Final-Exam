@@ -9,6 +9,7 @@ pipeline {
     }
   stages{
     stage("Build"){
+      agent { lable 'master'}
       steps{
         sh'''
         echo "Manhnh"
