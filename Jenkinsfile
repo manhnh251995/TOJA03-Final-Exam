@@ -40,7 +40,10 @@ pipeline {
             expression { params.CHOICE == 'all' }
             }
             steps {
+                sh'''
                 echo "hello All"
+                sh buildNodeJS.sh && sh buildPython.sh
+                '''
             }
         }
     }    
