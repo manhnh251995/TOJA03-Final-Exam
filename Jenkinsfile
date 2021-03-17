@@ -57,10 +57,7 @@ pipeline {
             agent { label 'jenkin02' }
             steps {
                 sh'''
-                pwd
-                ls $(pwd)
-                chmod +x DeployNodeJS.sh
-                ./DeployNodeJS.sh 
+                sh deployNodeJS.sh 
                 '''
             }
         }
@@ -71,7 +68,7 @@ pipeline {
             agent { label 'jenkin02' }
             steps {
                 sh'''
-                sh DeployPython.sh 
+                sh deployPython.sh 
                 '''
             }
         }
@@ -82,7 +79,7 @@ pipeline {
             agent { label 'jenkin02' }
             steps {
                 sh'''
-                sh DeployNodeJS.sh && sh DeployPython.sh
+                sh deployNodeJS.sh && sh deployPython.sh
                 '''
             }
         }
