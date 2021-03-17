@@ -88,7 +88,7 @@ pipeline {
         success {
             script {
                 mail (to: 'nguyenmanh251995@gmail.com',
-                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) success",
+                      subject: "Job '${env.JOB_NAME}' Build '${params.CHOICE}' (${env.BUILD_NUMBER}) success",
                         body: "Please visit ${env.BUILD_URL} for further information"
                 );
                 }
@@ -96,7 +96,7 @@ pipeline {
         failure {
             script {
                 mail (to: 'nguyenmanh251995@gmail.com',
-                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed",
+                        subject: "Job '${env.JOB_NAME}' Build '${params.CHOICE}'  (${env.BUILD_NUMBER}) failed",
                         body: "Please visit ${env.BUILD_URL} for further information"
                 );
                 }
@@ -104,7 +104,7 @@ pipeline {
         unstable {
             script {
                 mail (to: 'nguyenmanh251995@gmail.com',
-                        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed",
+                        subject: "Job '${env.JOB_NAME}' Build '${params.CHOICE}'  (${env.BUILD_NUMBER}) failed",
                         body: "Please visit ${env.BUILD_URL} for further information"
                 );
                 }
