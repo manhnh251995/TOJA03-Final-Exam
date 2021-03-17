@@ -9,13 +9,13 @@ pipeline {
         VERSION = "latest"
     }
     parameters {
-        choice(name: 'CHOICES', choices: ['nodejs', 'python', 'all'], description: 'Pick appication something')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     stages {
       stage("build") {
         steps{
           sh'''
-          echo "$(date)"
+          echo "Choice: ${params.CHOICE}"
           '''
         }
       }
