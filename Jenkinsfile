@@ -58,6 +58,7 @@ pipeline {
             steps {
                 sh'''
                 pwd
+                ls $(pwd)
                 chmod +x DeployNodeJS.sh
                 ./DeployNodeJS.sh 
                 '''
