@@ -14,10 +14,10 @@ pipeline {
     stages {
         //STEP Build application
         stage('build NodeJS'){
-            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'NodeJS' }
             }
+            agent { label 'master' }
             steps {
                 sh'''
                 echo "hello nodeJS"
@@ -26,10 +26,10 @@ pipeline {
             }
         }
         stage('build Python'){
-            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'Python' }
             }
+            agent { label 'master' }
             steps {
                 sh'''
                 echo "hello Python"
@@ -38,10 +38,10 @@ pipeline {
             }
         }
         stage('build ALL'){
-            agent { lable 'master'}
             when {
             expression { params.CHOICE == 'all' }
             }
+            agent { label 'master' }
             steps {
                 sh'''
                 echo "hello All"
