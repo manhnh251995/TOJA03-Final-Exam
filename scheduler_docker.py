@@ -28,8 +28,11 @@ def main():
     date_time_now = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     if docker_hub_image_id != container_current_id :
         os.system("echo '{} [INFO] Deploy new image have tag id {}..' >> /var/log/Deploy.log ".format(date_time_now,docker_hub_image_id))
-        os.system("sh deployNodeJS.sh")
-        os.system("echo '{} [INFO] Success deploy new image...' >> /var/log/Deploy.log ".format(date_time_now))
+        try:
+            os.system("sh deployNodeJS.sh")
+            os.system("echo '{} [INFO] Success deploy new image...' >> /var/log/Deploy.log ".format(date_time_now))
+        except: 
+            os.system("echo '{} [ERROR] Fail deploy new image...' >> /var/log/Deploy.log ".format(date_time_now))
     else :
         os.system("echo '{} [INFO] Not Found new image.. >> /var/log/Deploy.log'".format(date_time_now))
         os.system("echo '{} [INFO] No New deployment... >> /var/log/Deploy.log'".format(date_time_now))
