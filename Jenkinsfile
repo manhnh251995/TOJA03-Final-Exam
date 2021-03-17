@@ -9,13 +9,33 @@ pipeline {
         VERSION = "latest"
     }
     parameters {
-        choice(name: 'CHOICE', choices: ['NodeJS', 'Python', 'All'], description: 'Pick something')
+        choice(name: 'CHOICE', choices: ['NodeJS', 'Python', 'all'], description: 'Pick something')
     }
     stages {
-        stage('Example') {
+        //STEP Build application
+        stage('build NodeJS'){
+            when {
+            expression { params.CHOICE == 'NodeJS' }
+            }
             steps {
-               echo "Choice: ${params.CHOICE}"
+                echo "hello nodeJS"
             }
         }
-    }
+        stage('build Python'){
+            when {
+            expression { params.CHOICE == 'Python' }
+            }
+            steps {
+                echo "hello Python"
+            }
+        }
+        stage('build ALL'){
+            when {
+            expression { params.CHOICE == 'all' }
+            }
+            steps {
+                echo "hello All"
+            }
+        }
+    }    
 }
