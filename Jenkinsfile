@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent any
     options {
         timestamps()
         timeout(time: 1, unit: 'MINUTES') 
@@ -12,12 +12,10 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     stages {
-      stage("build") {
-        steps{
-          sh'''
-          echo "Choice: ${params.CHOICE}"
-          '''
+        stage('Example') {
+            steps {
+               echo "Choice: ${params.CHOICE}"
+            }
         }
-      }
     }
 }
