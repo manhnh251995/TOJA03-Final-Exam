@@ -21,6 +21,7 @@ pipeline {
             steps {
                 sh'''
                 echo "hello nodeJS"
+                chmod +x buildNodeJS.sh
                 ./buildNodeJS.sh
                 '''
             }
