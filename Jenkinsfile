@@ -29,7 +29,10 @@ pipeline {
             expression { params.CHOICE == 'Python' }
             }
             steps {
+                sh'''
                 echo "hello Python"
+                sh buildPython.sh
+                '''
             }
         }
         stage('build ALL'){
