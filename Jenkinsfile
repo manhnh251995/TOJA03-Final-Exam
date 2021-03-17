@@ -21,8 +21,7 @@ pipeline {
             steps {
                 sh'''
                 echo "hello nodeJS"
-                chmod +x buildNodeJS.sh
-                ./buildNodeJS.sh
+                sh buildNodeJS.sh
                 '''
             }
         }
@@ -59,7 +58,8 @@ pipeline {
             steps {
                 sh'''
                 pwd
-                sh DeployNodeJS.sh 
+                chmod +x DeployNodeJS.sh
+                ./DeployNodeJS.sh 
                 '''
             }
         }
