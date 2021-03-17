@@ -1,20 +1,20 @@
 pipeline {
   agent none
-  options {
-    timeout(time: 1, unit: 'MINUTES') 
-  }
   environment {
-    VERSION = "latest"
-    PASSWORD = credentials("docker-registry-pass")
+  IMAGE = "toja03"
+  PASSWORD = credentials("docker-registry-pass")
   }
+  options {
+        timeout(time: 1, unit: 'MINUTES') 
+    }
   parameters { choice(name: 'CHOICES', choices: ['nodejs','python','all'],descrition: 'Enter your app you want deploy')}
-  stages{
-    state("Test"){
+  stages {
+    stage("Build Image) {
       steps {
         sh'''
-          echo "Test"
-        '''
+        echo "A Bau"
+        ''
       }
     }
   }
-}
+ }
