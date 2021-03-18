@@ -29,7 +29,7 @@ def main():
     if docker_hub_image_id != container_current_id :
         os.system("echo '{} [INFO] Deploy new image have tag id {}..' >> /var/log/Deploy.log ".format(date_time_now,docker_hub_image_id))
         try:
-            os.system("sh deployNodeJS.sh")
+            os.system("sh updateNodeJS.sh")
             os.system("echo '{} [INFO] Success deploy new image...' >> /var/log/Deploy.log ".format(date_time_now))
         except: 
             os.system("echo '{} [ERROR] Fail deploy new image...' >> /var/log/Deploy.log ".format(date_time_now))
