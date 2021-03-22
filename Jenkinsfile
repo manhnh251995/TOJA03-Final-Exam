@@ -2,7 +2,7 @@ pipeline {
     agent none 
     options {
         timestamps()
-        timeout(time: 5, unit: 'MINUTES') 
+        timeout(time: 100, unit: 'MINUTES') 
     }
     environment {
         PASSWORD_DOCKER_HUB = credentials('docker-registry-pass')
